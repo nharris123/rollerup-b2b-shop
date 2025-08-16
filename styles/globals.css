@@ -2,33 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme tokens */
+/* Theme */
 :root {
-  --bg: #0a0f14;
-  --bg-soft: #0f1720;
-  --card: #101821;
+  --bg: #070b10;
+  --bg-soft: #0e1620;
+  --card: #0f1822;
   --muted: #c8d2df;
   --border: 255 255 255 / 0.08;
-  --brand: #1e88e5; /* primary */
-  --brand-2: #00d4ff; /* accent */
+  --brand: #1e88e5;
+  --brand-2: #00d4ff;
 }
 
 html, body { background: var(--bg); color: white; }
 
 .container { @apply max-w-6xl mx-auto px-4; }
+.hr { @apply border-t border-white/10; }
 
-.card { @apply rounded-2xl p-5 border shadow-sm transition-all; border-color: rgb(var(--border)); background: var(--card); }
+.card { @apply rounded-2xl p-6 border shadow-sm transition-all; border-color: rgb(var(--border)); background: var(--card); }
 .card:hover { @apply shadow-lg; border-color: rgb(255 255 255 / 0.14); }
 
 .btn { @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition; }
-.btn-primary { @apply btn bg-[var(--brand)] hover:opacity-90; }
+.btn-primary { @apply btn text-white; background: linear-gradient(135deg, var(--brand), var(--brand-2)); }
+.btn-primary:hover { @apply opacity-90; }
 .btn-ghost { @apply btn bg-white/10 hover:bg-white/20; }
 
-/* Pretty gradient bands */
-.hero-gradient {
-  background-image: radial-gradient(1200px 400px at 50% -200px, rgba(30,136,229,0.45), transparent),
-                    linear-gradient(180deg, rgba(0,212,255,0.14), transparent 40%);
+/* Hero */
+.hero-animated {
+  position: relative;
+  background: radial-gradient(1000px 320px at 50% -200px, rgba(30,136,229,0.35), transparent),
+              linear-gradient(180deg, rgba(0,212,255,0.12), transparent 40%);
 }
+.badge-chip { @apply inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-3 py-1 text-xs text-white/80; }
+.orb { position: absolute; width: 24rem; height: 24rem; border-radius: 50%;
+  filter: blur(40px); opacity: 0.18; animation: float 12s ease-in-out infinite; }
+.orb-a { right: -6rem; top: -6rem; background: #1e88e5; }
+.orb-b { left: -6rem; bottom: -6rem; background: #00d4ff; animation-delay: 2.5s; }
+@keyframes float { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-16px);} }
 
-/* Subtle divider */
-.hr { @apply border-t border-white/10; }
+/* Trusted by pills */
+.logo-pill { @apply rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white/80 text-sm text-center; }
+
+/* Quote mark */
+.quote-mark { font-size: 64px; line-height: 0.7; color: rgba(255,255,255,0.2); }

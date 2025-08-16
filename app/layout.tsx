@@ -2,6 +2,9 @@ import './globals.css'
 import Provider from '@/components/Provider'
 import CartButton from '@/components/CartButton'
 import Image from 'next/image'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Roller Up B2B Shop',
@@ -11,9 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Provider>
-          <header className="border-b border-white/10 bg-[var(--bg-soft)]/60 backdrop-blur">
+          <header className="sticky top-0 z-40 border-b border-white/10 bg-[var(--bg-soft)]/70 backdrop-blur">
             <div className="container flex items-center justify-between py-3">
               <a href="/" className="flex items-center gap-3">
                 <Image src="/rollerup-logo.svg" alt="Roller Up" width={150} height={28} priority />
@@ -25,9 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </nav>
             </div>
           </header>
-
           <main className="container py-10">{children}</main>
-
           <footer className="hr mt-14">
             <div className="container py-6 text-white/65 text-sm flex flex-wrap items-center justify-between gap-2">
               <div>© {new Date().getFullYear()} Roller Up</div>
