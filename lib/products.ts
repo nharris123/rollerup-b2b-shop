@@ -4,7 +4,7 @@ export type Product = {
   price: number; // display price in USD
   short: string;
   description: string[];
-  image: string; // /images/*.svg
+  image: string; // /images/*.png
   stripePriceEnv: string; // env var containing Stripe Price ID
 };
 
@@ -19,7 +19,7 @@ export const products: Product[] = [
       "Integrated EMV contact/contactless + magstripe",
       "Ideal for lane sales and membership signups"
     ],
-    image: "/images/stripe-reader.svg",
+    image: "/images/stripe-reader.png",
     stripePriceEnv: "NEXT_PUBLIC_PRICE_ID_STRIPE_READER",
   },
   {
@@ -32,7 +32,7 @@ export const products: Product[] = [
       "PoE, IR illumination, Rekor compatible",
       "Use at entry lanes and tunnel confirmation"
     ],
-    image: "/images/lpr-camera.svg",
+    image: "/images/lpr-camera.png",
     stripePriceEnv: "NEXT_PUBLIC_PRICE_ID_LPR_CAMERA",
   },
   {
@@ -45,7 +45,7 @@ export const products: Product[] = [
       "Integrates with LPR and RFID readers",
       "Left/Right configurable, 10–14 ft arm"
     ],
-    image: "/images/magnetic-gate.svg",
+    image: "/images/magnetic-gate.png",
     stripePriceEnv: "NEXT_PUBLIC_PRICE_ID_MAGNETIC_GATE",
   },
 ];
