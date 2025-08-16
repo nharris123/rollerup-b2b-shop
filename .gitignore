@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+.vercel/
+
+# env & local
+.env*
+!.env.example
+
+# misc
+.DS_Store
+dist/
+coverage/
+.turbo/
