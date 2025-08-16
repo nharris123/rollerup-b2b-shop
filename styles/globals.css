@@ -2,34 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens */
 :root {
-  --bg: #0b0d10;
-  --card: #101317;
-  --muted: #c6ccd4;
-  --brand: #1e88e5;
+  --bg: #0a0f14;
+  --bg-soft: #0f1720;
+  --card: #101821;
+  --muted: #c8d2df;
+  --border: 255 255 255 / 0.08;
+  --brand: #1e88e5; /* primary */
+  --brand-2: #00d4ff; /* accent */
 }
 
-html, body {
-  background: var(--bg);
-  color: white;
+html, body { background: var(--bg); color: white; }
+
+.container { @apply max-w-6xl mx-auto px-4; }
+
+.card { @apply rounded-2xl p-5 border shadow-sm transition-all; border-color: rgb(var(--border)); background: var(--card); }
+.card:hover { @apply shadow-lg; border-color: rgb(255 255 255 / 0.14); }
+
+.btn { @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition; }
+.btn-primary { @apply btn bg-[var(--brand)] hover:opacity-90; }
+.btn-ghost { @apply btn bg-white/10 hover:bg-white/20; }
+
+/* Pretty gradient bands */
+.hero-gradient {
+  background-image: radial-gradient(1200px 400px at 50% -200px, rgba(30,136,229,0.45), transparent),
+                    linear-gradient(180deg, rgba(0,212,255,0.14), transparent 40%);
 }
 
-.container {
-  @apply max-w-6xl mx-auto px-4;
-}
-
-.card {
-  @apply bg-[var(--card)] rounded-xl p-5 border border-white/10 shadow;
-}
-
-.btn {
-  @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition;
-}
-
-.btn-primary {
-  @apply btn bg-[var(--brand)] text-white hover:opacity-90;
-}
-
-.btn-ghost {
-  @apply btn bg-white/10 hover:bg-white/20;
-}
+/* Subtle divider */
+.hr { @apply border-t border-white/10; }

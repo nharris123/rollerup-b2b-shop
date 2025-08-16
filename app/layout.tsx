@@ -1,6 +1,7 @@
 import './globals.css'
 import Provider from '@/components/Provider'
 import CartButton from '@/components/CartButton'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Roller Up B2B Shop',
@@ -12,18 +13,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Provider>
-          <header className="border-b border-white/10">
-            <div className="container flex items-center justify-between py-4">
-              <a href="/" className="font-semibold tracking-wide">ROLLER <span className="text-[var(--brand)]">UP</span> • B2B</a>
+          <header className="border-b border-white/10 bg-[var(--bg-soft)]/60 backdrop-blur">
+            <div className="container flex items-center justify-between py-3">
+              <a href="/" className="flex items-center gap-3">
+                <Image src="/rollerup-logo.svg" alt="Roller Up" width={150} height={28} priority />
+                <span className="text-white/60 text-sm hidden sm:inline">B2B Hardware</span>
+              </a>
               <nav className="flex items-center gap-3">
                 <a className="btn-ghost" href="/quote">Request a quote</a>
                 <CartButton />
               </nav>
             </div>
           </header>
+
           <main className="container py-10">{children}</main>
-          <footer className="border-t border-white/10 mt-10">
-            <div className="container py-6 text-white/60 text-sm flex flex-wrap items-center justify-between gap-2">
+
+          <footer className="hr mt-14">
+            <div className="container py-6 text-white/65 text-sm flex flex-wrap items-center justify-between gap-2">
               <div>© {new Date().getFullYear()} Roller Up</div>
               <div className="flex gap-4">
                 <a className="hover:underline" href="#">Terms</a>
